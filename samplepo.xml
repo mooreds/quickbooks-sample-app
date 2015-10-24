@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QueryResponse startPosition="1" maxResults="3" totalCount="3">
+
+   <PurchaseOrder domain="QBO" sparse="false">
+
+      <Id>125</Id>
+
+      <SyncToken>1</SyncToken>
+
+      <MetaData>
+
+        <CreateTime>2015-09-27T13:10:14-07:00</CreateTime>
+
+        <LastUpdatedTime>2015-09-27T13:10:36-07:00</LastUpdatedTime>
+
+      </MetaData>
+
+      <CustomField>
+
+        <DefinitionId>1</DefinitionId>
+
+        <Name>Crew #</Name>
+
+        <Type>StringType</Type>
+
+      </CustomField>
+
+      <CustomField>
+
+        <DefinitionId>2</DefinitionId>
+
+        <Name>Sales Rep</Name>
+
+        <Type>StringType</Type>
+
+      </CustomField>
+
+      <DocNumber>1004</DocNumber>
+
+      <TxnDate>2015-09-27</TxnDate>
+
+      <LinkedTxn>
+
+        <TxnId>126</TxnId>
+
+        <TxnType>Bill</TxnType>
+
+      </LinkedTxn>
+
+      <Line>
+
+        <Id>1</Id>
+
+        <Description>Fountain Pump</Description>
+
+        <Amount>80.00</Amount>
+
+        <DetailType>ItemBasedExpenseLineDetail</DetailType>
+
+        <ItemBasedExpenseLineDetail>
+
+          <ItemRef name="Pump">11</ItemRef>
+
+          <UnitPrice>10</UnitPrice>
+
+          <Qty>8</Qty>
+
+          <TaxCodeRef>NON</TaxCodeRef>
+
+          <BillableStatus>NotBillable</BillableStatus>
+
+        </ItemBasedExpenseLineDetail>
+
+      </Line>
+
+      <Line>
+
+        <Id>2</Id>
+
+        <Description>Rock Fountain</Description>
+
+        <Amount>125.00</Amount>
+
+        <DetailType>ItemBasedExpenseLineDetail</DetailType>
+
+        <ItemBasedExpenseLineDetail>
+
+          <ItemRef name="Rock Fountain">5</ItemRef>
+
+          <UnitPrice>125</UnitPrice>
+
+          <Qty>1</Qty>
+
+          <TaxCodeRef>NON</TaxCodeRef>
+
+          <BillableStatus>NotBillable</BillableStatus>
+
+        </ItemBasedExpenseLineDetail>
+
+      </Line>
+
+      <VendorRef name="Norton Lumber and Building Materials">46</VendorRef>
+
+      <APAccountRef name="Accounts Payable (A/P)">33</APAccountRef>
+
+      <TotalAmt>205.00</TotalAmt>
+
+      <VendorAddr>
+
+        <Id>92</Id>
+
+        <Line1>Julie Norton</Line1>
+
+        <Line2>Norton Lumber and Building Materials</Line2>
+
+        <Line3>4528 Country Road</Line3>
+
+        <Line4>Middlefield, CA  94303</Line4>
+
+        <Lat>37.4530553</Lat>
+
+        <Long>-122.1178261</Long>
+
+      </VendorAddr>
+
+      <ShipAddr>
+
+        <Id>93</Id>
+
+        <Line1>Craig's Design and Landscaping Services</Line1>
+
+        <Line2>123 Sierra Way</Line2>
+
+        <Line3>San Pablo, CA  87999</Line3>
+
+        <Lat>INVALID</Lat>
+
+        <Long>INVALID</Long>
+
+      </ShipAddr>
+
+      <POStatus>Closed</POStatus>
+
+    </PurchaseOrder>
+
+    <PurchaseOrder domain="QBO" sparse="false">
+
+      <Id>114</Id>
+
+      <SyncToken>2</SyncToken>
+
+      <MetaData>
+
+        <CreateTime>2015-09-27T12:50:05-07:00</CreateTime>
+
+        <LastUpdatedTime>2015-09-27T12:51:47-07:00</LastUpdatedTime>
+
+      </MetaData>
+
+      <CustomField>
+
+        <DefinitionId>1</DefinitionId>
+
+        <Name>Crew #</Name>
+
+        <Type>StringType</Type>
+
+      </CustomField>
+
+      <CustomField>
+
+        <DefinitionId>2</DefinitionId>
+
+        <Name>Sales Rep</Name>
+
+        <Type>StringType</Type>
+
+      </CustomField>
+
+      <DocNumber>1003</DocNumber>
+
+      <TxnDate>2015-09-27</TxnDate>
+
+      <LinkedTxn>
+
+        <TxnId>115</TxnId>
+
+        <TxnType>Bill</TxnType>
+
+      </LinkedTxn>
+
+      <Line>
+
+        <Id>1</Id>
+
+        <Description>Rock Fountain</Description>
+
+        <Amount>125.00</Amount>
+
+        <DetailType>ItemBasedExpenseLineDetail</DetailType>
+
+        <ItemBasedExpenseLineDetail>
+
+          <ItemRef name="Rock Fountain">5</ItemRef>
+
+          <UnitPrice>125</UnitPrice>
+
+          <Qty>1</Qty>
+
+          <TaxCodeRef>NON</TaxCodeRef>
+
+          <CustomerRef name="Sushi by Katsuyuki">25</CustomerRef>
+
+          <BillableStatus>NotBillable</BillableStatus>
+
+        </ItemBasedExpenseLineDetail>
+
+      </Line>
+
+      <Line>
+
+        <Id>2</Id>
+
+        <Description>Sprinkler Heads</Description>
+
+        <Amount>11.25</Amount>
+
+        <DetailType>ItemBasedExpenseLineDetail</DetailType>
+
+        <ItemBasedExpenseLineDetail>
+
+          <ItemRef name="Sprinkler Heads">16</ItemRef>
+
+          <UnitPrice>0.75</UnitPrice>
+
+          <Qty>15</Qty>
+
+          <TaxCodeRef>NON</TaxCodeRef>
+
+          <CustomerRef name="Sushi by Katsuyuki">25</CustomerRef>
+
+          <BillableStatus>NotBillable</BillableStatus>
+
+        </ItemBasedExpenseLineDetail>
+
+      </Line>
+
+      <Line>
+
+        <Id>3</Id>
+
+        <Description>Sprinkler Pipes</Description>
+
+        <Amount>62.50</Amount>
+
+        <DetailType>ItemBasedExpenseLineDetail</DetailType>
+
+        <ItemBasedExpenseLineDetail>
+
+          <ItemRef name="Sprinkler Pipes">17</ItemRef>
+
+          <UnitPrice>2.5</UnitPrice>
+
+          <Qty>25</Qty>
+
+          <TaxCodeRef>NON</TaxCodeRef>
+
+          <CustomerRef name="Sushi by Katsuyuki">25</CustomerRef>
+
+          <BillableStatus>NotBillable</BillableStatus>
+
+        </ItemBasedExpenseLineDetail>
+
+      </Line>
+
+      <Line>
+
+        <Id>4</Id>
+
+        <Description>Fountain Pump</Description>
+
+        <Amount>30.00</Amount>
+
+        <DetailType>ItemBasedExpenseLineDetail</DetailType>
+
+        <ItemBasedExpenseLineDetail>
+
+          <ItemRef name="Pump">11</ItemRef>
+
+          <UnitPrice>10</UnitPrice>
+
+          <Qty>3</Qty>
+
+          <TaxCodeRef>NON</TaxCodeRef>
+
+          <BillableStatus>NotBillable</BillableStatus>
+
+        </ItemBasedExpenseLineDetail>
+
+      </Line>
+
+      <VendorRef name="Hicks Hardware">41</VendorRef>
+
+      <APAccountRef name="Accounts Payable (A/P)">33</APAccountRef>
+
+      <TotalAmt>228.75</TotalAmt>
+
+      <VendorAddr>
+
+        <Id>89</Id>
+
+        <Line1>Geoff Hicks</Line1>
+
+        <Line2>Hicks Hardware</Line2>
+
+        <Line3>42 Main St.</Line3>
+
+        <Line4>Middlefield, CA  94303</Line4>
+
+        <Lat>37.4530553</Lat>
+
+        <Long>-122.1178261</Long>
+
+      </VendorAddr>
+
+      <ShipAddr>
+
+        <Id>90</Id>
+
+        <Line1>Craig's Design and Landscaping Services</Line1>
+
+        <Line2>123 Sierra Way</Line2>
+
+        <Line3>San Pablo, CA  87999</Line3>
+
+        <Lat>INVALID</Lat>
+
+        <Long>INVALID</Long>
+
+      </ShipAddr>
+
+      <POStatus>Closed</POStatus>
+
+    </PurchaseOrder>
+
+</QueryResponse>
