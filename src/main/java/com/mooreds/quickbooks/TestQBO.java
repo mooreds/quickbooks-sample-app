@@ -1,12 +1,35 @@
 package com.mooreds.quickbooks;
 
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.DOMBuilder;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.input.StAXEventBuilder;
+import org.jdom2.input.StAXStreamBuilder;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import javax.xml.bind.*;
+
 import static com.intuit.ipp.query.GenerateQuery.$;
 import static com.intuit.ipp.query.GenerateQuery.select;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import oauth.signpost.OAuth;
 import oauth.signpost.OAuthConsumer;
@@ -22,6 +45,7 @@ import com.intuit.ipp.core.Context;
 import com.intuit.ipp.core.IEntity;
 import com.intuit.ipp.core.ServiceType;
 import com.intuit.ipp.data.Customer;
+import com.intuit.ipp.data.PurchaseOrder;
 import com.intuit.ipp.exception.FMSException;
 import com.intuit.ipp.query.GenerateQuery;
 import com.intuit.ipp.security.OAuthAuthorizer;
@@ -30,6 +54,8 @@ import com.intuit.ipp.services.QueryResult;
 
 public class TestQBO {
 
+    public static final String pathname = "samplepo.xml";
+    
 //    private static final String REQUEST_TOKEN_ENDPOINT_URL = "https://oauth.intuit.com/oauth/v1/get_request_token";
 //    private static final String ACCESS_TOKEN_ENDPOINT_URL =  "https://oauth.intuit.com/oauth/v1/get_access_token";
 //    private static final String AUTHORIZE_WEBSITE_URL = "https://appcenter.intuit.com/Connect/Begin";
@@ -37,7 +63,7 @@ public class TestQBO {
     private static final String ACCESS_TOKEN_ENDPOINT_URL =  "https://oauth.intuit.com/oauth/v1/get_access_token";
     private static final String AUTHORIZE_WEBSITE_URL = "https://appcenter.intuit.com/Connect/Begin";
 
-    public static void main(String[] args) throws FMSException, OAuthMessageSignerException, OAuthNotAuthorizedException, OAuthExpectationFailedException, OAuthCommunicationException, IOException {
+    public static void main(String[] args) throws FMSException, OAuthMessageSignerException, OAuthNotAuthorizedException, OAuthExpectationFailedException, OAuthCommunicationException, IOException, ParserConfigurationException, SAXException, JAXBException {
         String accessToken = "...";
         String accessTokenSecret = "...";
         // fill in from qbo app form
@@ -104,6 +130,8 @@ public class TestQBO {
                 + custFromDb.getFamilyName() + ", "
                 + custFromDb.getGivenName());
         
+        
+        /*  update code
         custFromDb.setFamilyName("Test");
         
         service.update(custFromDb);
@@ -116,7 +144,50 @@ public class TestQBO {
         System.out.println("from query: "
                 + custFromDb.getFamilyName() + ", "
                 + custFromDb.getGivenName());
+        */
         
-                
+        /* couldn't make work
+        JAXBContext jc = JAXBContext.newInstance(PurchaseOrder.class);
+
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        File xml = new File(pathname);
+        PurchaseOrders pos = (PurchaseOrders) unmarshaller.unmarshal(xml);
+        
+        System.out.println("po: "+pos.getPurchaseOrders().size());
+        */
+        /*
+         * 
+         * using jdom to parse files
+        File xml = new File(pathname);
+        
+ 
+        //we can create JDOM Document from DOM, SAX and STAX Parser Builder classes
+        org.jdom2.Document jdomDoc = useDOMParser(xml.getAbsolutePath());
+        Element root = jdomDoc.getRootElement();
+        List<Element> elements = root.getChildren("PurchaseOrder");
+        
+        List<PurchaseOrder> purchaseOrderList = new ArrayList();
+        for (Element element : elements ) {
+            PurchaseOrder po = new PurchaseOrder();
+            po.setId(element.getChildText("Id"));
+            po.setTotalAmt(BigDecimal.valueOf(Double.valueOf(element.getChildText("TotalAmt"))));
+            purchaseOrderList.add(po);
+        }
+        
+        System.out.println("total: "+purchaseOrderList.size());
+        */
+    }
+    
+    //Get JDOM document from DOM Parser
+    private static org.jdom2.Document useDOMParser(String fileName)
+            throws ParserConfigurationException, SAXException, IOException {
+        //creating DOM Document
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder;
+        dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(new File(fileName));
+        DOMBuilder domBuilder = new DOMBuilder();
+        return domBuilder.build(doc);
+
     }
 }
